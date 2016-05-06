@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC36DC8C1CDC0BB3001248CE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC36DC8B1CDC0BB3001248CE /* main.cpp */; };
+		DC36DC8C1CDC0BB3001248CE /* extrapolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC36DC8B1CDC0BB3001248CE /* extrapolation.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		DC36DC881CDC0BB3001248CE /* Numerical Analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Numerical Analysis"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC36DC8B1CDC0BB3001248CE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DC36DC8B1CDC0BB3001248CE /* extrapolation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = extrapolation.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC202EEF1CDC1E7C000E58B8 /* project 3 */ = {
+			isa = PBXGroup;
+			children = (
+				DC36DC8B1CDC0BB3001248CE /* extrapolation.cpp */,
+			);
+			name = "project 3";
+			sourceTree = "<group>";
+		};
 		DC36DC7F1CDC0BB3001248CE = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +65,7 @@
 		DC36DC8A1CDC0BB3001248CE /* Numerical Analysis */ = {
 			isa = PBXGroup;
 			children = (
-				DC36DC8B1CDC0BB3001248CE /* main.cpp */,
+				DC202EEF1CDC1E7C000E58B8 /* project 3 */,
 			);
 			path = "Numerical Analysis";
 			sourceTree = "<group>";
@@ -118,7 +126,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC36DC8C1CDC0BB3001248CE /* main.cpp in Sources */,
+				DC36DC8C1CDC0BB3001248CE /* extrapolation.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +245,7 @@
 				DC36DC911CDC0BB3001248CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
