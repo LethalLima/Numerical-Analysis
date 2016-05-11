@@ -10,30 +10,27 @@
 #include <cmath>
 #include <vector>
 #include <iomanip>
+#include "CompTrapRule.hpp"
 
 double f(double x){
     return pow(pow(1 - pow(x, 2.0), 1.0/2.0), -1.0);
 //    return x * log(x);
 }
 
-double compTrap(double (*func)(double), double a, double b, unsigned n){
-    double result = 0.0;
-    double h = (b - a)/n;
-    double x;
-    std::cout << "h = " << h << std::endl;
-    for(unsigned j = 1; j < n; j++){
-        x = a + j * h;
-        result += (2.0 * func(x));
-    }
-    
-    return (h/2.0)*(func(a) + result + func(b));
-}
-
 int main(int argc, const char * argv[]) {
+    
     double a = 0.0;
     double b = 0.99;
-    unsigned n = 2001;
+    std::vector<double> nodes;
+    nodes.push_back(101);
+    nodes.push_back(201);
+    nodes.push_back(1001);
+    nodes.push_back(2001);
+    CompTrapRule ctp(&f, a, b, nodes);
+    std::vector<double> results = ctp.getResults();
+    for(unsigned i = 0; i < results.size(); i++){
+        std::cout << "Composite Trapezoidal Rule approximation: " << std::setprecision(9) << results[i] << std::endl;
+    }
     
-    std::cout << "Composite Trapezoidal Rule approximation: " << std::setprecision(9) << compTrap(&f, a, b, n) << std::endl;
     return 0;
 }

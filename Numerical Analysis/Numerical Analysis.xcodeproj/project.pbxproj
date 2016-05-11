@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC215F301CE30A7C0051A7CE /* CompTrapRule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC215F2E1CE30A7C0051A7CE /* CompTrapRule.cpp */; };
 		DC36DC8C1CDC0BB3001248CE /* extrapolation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DC36DC8B1CDC0BB3001248CE /* extrapolation.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC215F2E1CE30A7C0051A7CE /* CompTrapRule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CompTrapRule.cpp; sourceTree = "<group>"; };
+		DC215F2F1CE30A7C0051A7CE /* CompTrapRule.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CompTrapRule.hpp; sourceTree = "<group>"; };
 		DC36DC881CDC0BB3001248CE /* Numerical Analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Numerical Analysis"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC36DC8B1CDC0BB3001248CE /* extrapolation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = extrapolation.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +44,8 @@
 		DC202EEF1CDC1E7C000E58B8 /* project 3 */ = {
 			isa = PBXGroup;
 			children = (
+				DC215F2E1CE30A7C0051A7CE /* CompTrapRule.cpp */,
+				DC215F2F1CE30A7C0051A7CE /* CompTrapRule.hpp */,
 				DC36DC8B1CDC0BB3001248CE /* extrapolation.cpp */,
 			);
 			name = "project 3";
@@ -127,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC36DC8C1CDC0BB3001248CE /* extrapolation.cpp in Sources */,
+				DC215F301CE30A7C0051A7CE /* CompTrapRule.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
