@@ -8,32 +8,60 @@
 
 #include "CompTrapRule.hpp"
 
-CompTrapRule::CompTrapRule(){}
+//No need for it at the moment
+//CompTrapRule::CompTrapRule(){}
 
-CompTrapRule::CompTrapRule(double (*func)(double), double a, double b, std::vector<double> nodes){
+CompTrapRule::CompTrapRule(double (*func)(double), double (*fDoublePrime)(double), double a, double b, std::vector<double> nodes){
     this->func = func;
+    this->fDoublePrime = fDoublePrime;
     this->a = a;
     this->b = b;
     this->nodes = nodes;
+    h.resize(nodes.size());
     result.resize(nodes.size(), 0.0);
+    errorBound.resize(nodes.size());
     calculate();
 }
 
 CompTrapRule & CompTrapRule::calculate(){
-    double h;
     double x;
     for(unsigned i = 0; i < nodes.size(); i++){
-        h = (b - a)/nodes[i];
+        h[i] = (b - a)/nodes[i];
     
         for(unsigned j = 1; j < nodes[i]; j++){
-            x = a + j * h;
+            x = a + j * h[i];
             result[i] += (2.0 * func(x));
         }
-        result[i] = (h/2.0)*(func(a) + result[i] + func(b));
+        result[i] = (h[i]/2.0)*(func(a) + result[i] + func(b));
+        errorBound[i] = calculateErrorBound(h[i]);
     }
     return *this;
 }
 
-std::vector<double> CompTrapRule::getResults(){
+double CompTrapRule::maxValue(){
+    // In the works, trying to find an optimal/reasonable implementation.
+//    double max = fDoublePrime(a), temp;
+//    for(unsigned i = 0; i < 100; i++){
+//        if(max > (temp = fDoublePrime(b)))
+//            max = temp;
+//    }
+//    return max;
+    return (fDoublePrime(a) > fDoublePrime(b)) ? fDoublePrime(a) : fDoublePrime(b);
+}
+
+double CompTrapRule::calculateErrorBound(double h){
+    return ((b - a)/12.0)*pow(h, 2.0)*maxValue();
+}
+
+
+std::vector<double> CompTrapRule::getResult(){
     return this->result;
+}
+
+std::vector<double> CompTrapRule::getHStep(){
+    return this->h;
+}
+
+std::vector<double> CompTrapRule::getErrorBound(){
+    return this->errorBound;
 }

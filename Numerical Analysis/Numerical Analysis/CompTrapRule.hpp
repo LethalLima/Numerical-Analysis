@@ -15,17 +15,25 @@
 class CompTrapRule{
 public:
     // default constructor
-    CompTrapRule();
+//    CompTrapRule();
     // paramatized constructor
-    CompTrapRule(double (*func)(double), double a, double b, std::vector<double> nodes);
-    std::vector<double> getResults();
+    explicit CompTrapRule(double (*func)(double), double (*fDoublePrime)(double), double a, double b, std::vector<double> nodes);
+    // getters
+    std::vector<double> getResult();
+    std::vector<double> getHStep();
+    std::vector<double> getErrorBound();
 private:
     double a;
     double b;
+    std::vector<double> h;
     std::vector<double> nodes;
     std::vector<double> result;
+    std::vector<double> errorBound;
     double (*func)(double);
+    double (*fDoublePrime)(double);
     CompTrapRule & calculate();
+    double calculateErrorBound(double h);
+    double maxValue();
 };
 
 #endif /* CompTrapRule_hpp */
